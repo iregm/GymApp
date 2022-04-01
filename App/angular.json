@@ -98,6 +98,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "App:build:production",
+            "firebaseProject": "gym-app-2b354",
+            "firebaseHostingSite": "gym-app-2b354"
+          }
         }
       }
     }

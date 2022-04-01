@@ -6,7 +6,11 @@ import { RoutineComponent } from './components/routine/routine.component';
 import { RoutinesComponent } from './components/routines/routines.component';
 
 import {AngularFireModule} from '@angular/fire/compat'
-import { environment } from 'src/environments/environment';
+import { environment} from 'src/environments/environment';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -16,7 +20,10 @@ import { environment } from 'src/environments/environment';
   ],
   imports: [
     BrowserModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore())
   ],
   providers: [],
   bootstrap: [AppComponent]
