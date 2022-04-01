@@ -5,6 +5,9 @@ import { AppComponent } from './app.component';
 import { RoutineComponent } from './components/routine/routine.component';
 import { RoutinesComponent } from './components/routines/routines.component';
 
+import {AngularFireModule} from '@angular/fire/compat'
+import { environment } from 'src/environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -12,7 +15,8 @@ import { RoutinesComponent } from './components/routines/routines.component';
     RoutinesComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]
