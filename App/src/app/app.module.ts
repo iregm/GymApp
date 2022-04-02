@@ -11,15 +11,19 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { CreateRoutineComponent } from './components/create-routine/create-routine.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     RoutineComponent,
-    RoutinesComponent
+    RoutinesComponent,
+    CreateRoutineComponent
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
