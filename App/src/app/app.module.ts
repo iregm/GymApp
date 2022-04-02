@@ -6,6 +6,7 @@ import { RoutineComponent } from './components/routine/routine.component';
 import { RoutinesComponent } from './components/routines/routines.component';
 
 import {AngularFireModule} from '@angular/fire/compat'
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 
 import { environment} from 'src/environments/environment';
@@ -26,7 +27,8 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireModule.initializeApp(environment.firebase),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore())
