@@ -6,6 +6,8 @@ import { RoutineComponent } from './components/routine/routine.component';
 import { RoutinesComponent } from './components/routines/routines.component';
 
 import {AngularFireModule} from '@angular/fire/compat'
+
+
 import { environment} from 'src/environments/environment';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 
