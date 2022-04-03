@@ -1,0 +1,13 @@
+.container .card{
+    width: 330px;
+    display: flex;
+    padding-right: 20px;
+}
+.button{
+    margin-bottom: 20px;
+}
+
+.derecha{
+
+text-align: center;
+}
