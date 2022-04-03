@@ -12,7 +12,7 @@ export class RoutinesComponent implements OnInit {
   rutinas: Observable<any[]>;
   constructor(firestore: AngularFirestore) { 
 
-    this.rutinas = firestore.collection('Rutinas').valueChanges();
+    this.rutinas = firestore.collection('Rutina').valueChanges();
   }
 
   ngOnInit(): void {
