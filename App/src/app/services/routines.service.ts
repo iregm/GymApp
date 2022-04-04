@@ -16,4 +16,9 @@ export class RoutineService {
     getRoutines():Observable<any>{
         return this.firestore.collection('Rutina').snapshotChanges();
     }
+
+    getRoutineEjer(id:string):Observable<any>{
+        return this.firestore.collection('Rutina').doc(id).snapshotChanges();
+
+    }
 }

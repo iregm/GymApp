@@ -13,7 +13,7 @@ export class RoutinesComponent implements OnInit {
   constructor(private _routineService: RoutineService) {  }
 
   ngOnInit(): void {
-    this.getRoutines()
+    this.getRoutines();
   }
 
   getRoutines(){

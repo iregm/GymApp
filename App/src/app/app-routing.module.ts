@@ -7,7 +7,7 @@ import { CreateRoutineComponent } from './components/create-routine/create-routi
 
 const routes : Routes = [
   {path: 'routines', component: RoutinesComponent},
-  {path: 'routine', component: RoutineComponent},
+  {path: 'routine/:id', component: RoutineComponent},
   {path: 'createRoutine', component: CreateRoutineComponent}
 ]
 
