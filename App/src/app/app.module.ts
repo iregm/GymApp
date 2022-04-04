@@ -16,13 +16,15 @@ import { RoutineComponent } from './components/routine/routine.component';
 import { RoutinesComponent } from './components/routines/routines.component';
 import { CreateRoutineComponent } from './components/create-routine/create-routine.component';
 import { AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RoutineComponent,
     RoutinesComponent,
-    CreateRoutineComponent
+    CreateRoutineComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
