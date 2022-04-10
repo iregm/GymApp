@@ -13,12 +13,20 @@ export class RoutineService {
         return this.firestore.collection('Rutina').add(routine);
 
     }
+    addUser(user :any) : Promise<any> {
+        return this.firestore.collection('User').add(user);
+
+    }
     getRoutines():Observable<any>{
         return this.firestore.collection('Rutina').snapshotChanges();
     }
 
     getRoutineEjer(id:string):Observable<any>{
-        return this.firestore.collection('Rutina').doc(id).snapshotChanges();
+        return this.firestore.collection('Rutina').doc(id).get();
+
+    }
+    getUser(email:string):Observable<any>{
+        return this.firestore.collection('User',ref => ref.where('email','==',email)).get();
 
     }
 }

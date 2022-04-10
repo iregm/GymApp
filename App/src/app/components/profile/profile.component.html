@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="card text-center">
+      <div class="card-header">
+        <b> Profile</b>
+      </div>
+      
+        <form class="card-body p-4" [formGroup]="updateUser" (ngSubmit)="update()">
+        <label style="float: left;">Name</label>
+        <input class="form-control m-2" type="text" placeholder="" formControlName="name">
+        <label style="float: left;">Height (cm)</label>
+        <input class="form-control m-2" type="number" placeholder="" formControlName="height">
+        <label style="float: left;">Weight (kg)</label>
+        <input class="form-control m-2" type="number" placeholder="" formControlName="weight">
+  
+        <button class="btn btn-primary btn-block m-2" type="submit">Save</button>
+    </form>
+  
+  
+    </div>
+  </div>
