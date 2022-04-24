@@ -1,7 +1,14 @@
 <nav class = "nav">
-    <a href="" class="nav__items" > Log in </a>
-    <a href="" class="nav__items" > Sign in </a>
-    <a href="" class="nav__items" > Edit profile </a>
-    <a routerLink="/routines" class="nav__items" > My routines </a>
+    
+    <div *ngIf="userLogged|async as user; else login">
+        <a class="nav__items">{{user.email}}</a>
+        <a routerLink="/profile" class="nav__items" > Edit profile </a>
+        <a routerLink="/routines" class="nav__items" > My routines </a>
+        <button class="btn btn-primary" (click)="logOut()">logout</button>
+    </div>
+    <ng-template #login>
+        <a routerLink="/" class="nav__items" > Log in </a>
+        <a routerLink="/singup" class="nav__items" > Sign in </a>
+      </ng-template>
 </nav>
 <router-outlet></router-outlet>

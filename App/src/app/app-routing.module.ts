@@ -5,9 +5,15 @@ import { RoutinesComponent } from './components/routines/routines.component';
 import { RoutineComponent } from './components/routine/routine.component';
 import { CreateRoutineComponent } from './components/create-routine/create-routine.component';
 import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { SingupComponent } from './components/singup/singup.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes : Routes = [
-  {path: '', component: HomeComponent},
+  {path: '', component: LoginComponent},
+  {path: 'singup', component: SingupComponent},
+  {path: 'home', component: HomeComponent},
+  {path: 'profile', component: ProfileComponent},
   {path: 'routines', component: RoutinesComponent},
   {path: 'routine/:id', component: RoutineComponent},
   {path: 'createRoutine', component: CreateRoutineComponent}
