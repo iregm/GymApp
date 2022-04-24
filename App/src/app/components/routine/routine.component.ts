@@ -40,7 +40,7 @@ export class RoutineComponent implements OnInit {
     if(this.id !== null){
 
        this._exerService.getRoutineEjer(this.id).subscribe(data => {
-          
+            const fi = 
            console.log(data.payload.data()['Name'])
           
     });
