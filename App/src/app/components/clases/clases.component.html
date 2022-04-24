@@ -1,11 +1,8 @@
 <div class="container2 mt-4">
     <div class="card">
         <div class="card-body derecha">
-            <span class="h2">List of routines</span>
-            <div>
-                <button class="btn btn-dark btn-lg mt-5" routerLink="/createRoutine">Add Routine</button>
-            </div>
-            
+            <span class="h2">Join a Class!</span>
+        
            
              
         </div>
@@ -13,17 +10,17 @@
 </div>
     <div class="container mt-4">
     <tr *ngFor="let clase of clases">
-         <div class="card mt-5" [routerLink]="['/routine/', clase.id]">
+         <div class="card mt-5">
             <div class="card-body">
                 <tr>
                     <h3>
                        {{clase.Name}}
                     </h3>
                     <h4>
-                        {{clase.Level}}
+                         Teacher : {{clase.Profesor}}
                     </h4>
                     <h4>
-                        {{clase.Time}} minutes
+                        {{clase.Hora}}
                     </h4>
                 
                 </tr>

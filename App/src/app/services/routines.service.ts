@@ -29,4 +29,7 @@ export class RoutineService {
         return this.firestore.collection('User',ref => ref.where('email','==',email)).get();
 
     }
+    getClases():Observable<any>{
+        return this.firestore.collection('Clase').snapshotChanges();
+    }
 }
