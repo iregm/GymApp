@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { RoutineService } from 'src/app/services/routines.service';
@@ -9,30 +10,39 @@ import { RoutineService } from 'src/app/services/routines.service';
   styleUrls: ['./routine.component.css']
 })
 export class RoutineComponent implements OnInit {
+  routine: FormGroup;
+
   id: string | null;
 
   aux : any ;
   constructor(
+    private fb : FormBuilder,
     private _exerService: RoutineService ,
     private aRoute: ActivatedRoute
   ) {
-    this.id = aRoute.snapshot.paramMap.get('id');
+  this.routine = this.fb.group({
+  NameEj : ['',Validators.required],
+ Repetition : ['',Validators.required],
+  Set : ['',Validators.required]
+})
+
+    this.id = this.aRoute.snapshot.paramMap.get('id');
     console.log(this.id)
 
    }
 
   ngOnInit(): void {
-    this.getRoutineEjer();
+    this.getRoutineEjers();
   }
 
 
-  getRoutineEjer(){
+  getRoutineEjers(){
     if(this.id !== null){
 
        this._exerService.getRoutineEjer(this.id).subscribe(data => {
-          data.forEach((Element:any) => {
-           console.log(Element.payload.doc.Exer)
-       });
+          
+           console.log(data.payload.data()['Name'])
+          
     });
 
 
