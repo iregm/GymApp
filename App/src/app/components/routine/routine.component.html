@@ -1,16 +1,37 @@
-
 <div class="container2 mt-4">
     <div class="card">
         <div class="card-body derecha">
-            <span class="h2"> </span>
+            <span class="h2">
+
+
+                <div class="container mt-4">
+                   
+                    <div>
+                        <h1>
+                            Routine: {{aux.Name}}
+                        </h1>
+
+                    </div>
+                   
+                    <div class="row mt-3" *ngFor="let exercise of aux.exercises">
+
+                        
+                        <div class="col">{{exercise.NameEj}}</div>
+                        <div class="col">Set: {{exercise.Set}}</div>
+                        <div class="col">Repetition: {{exercise.Repetition}}</div>
+                    </div>
+                    <div>
+                        
+                        Difficulty{{aux.Level}}
+
+                    </div>
+                    
+
+                </div>
+
+
+            </span>
 
         </div>
     </div>
 </div>
-    <div class="container mt-4">
-    
-    <div>
-
-
-    </div>
-
