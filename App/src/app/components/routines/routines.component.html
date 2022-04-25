@@ -16,19 +16,23 @@
          <div class="card mt-5" [routerLink]="['/routine/', rutina.id]">
             <div class="card-body">
                 <tr>
+                    <div class = "titulo">
                     <h3>
-                       {{rutina.Name}}
+                        {{rutina.Name}}
                     </h3>
+                    </div>
+                    <div class = "nivel">
                     <h4>
                         {{rutina.Level}}
                     </h4>
+                    </div>
+                    <div class = "duracion">
                     <h4>
                         {{rutina.Time}} minutes
                     </h4>
-                
+                    </div>
+                     
                 </tr>
-            
-             
             </div>
         </div>
     </tr>
