@@ -10,26 +10,24 @@ import { RoutineService } from 'src/app/services/routines.service';
   styleUrls: ['./routine.component.css']
 })
 export class RoutineComponent implements OnInit {
-  routine: FormGroup;
+  rutina: any[] = [];
 
   id: string | null;
 
   aux : any ;
+
   constructor(
     private fb : FormBuilder,
-    private _exerService: RoutineService ,
+    private _routineService: RoutineService ,
     private aRoute: ActivatedRoute
   ) {
-  this.routine = this.fb.group({
-  NameEj : ['',Validators.required],
- Repetition : ['',Validators.required],
-  Set : ['',Validators.required]
-})
-
+    
     this.id = this.aRoute.snapshot.paramMap.get('id');
-    console.log(this.id)
+    console.log(this.id);
+  }
 
-   }
+    
+   
 
   ngOnInit(): void {
     this.getRoutineEjers();
@@ -39,13 +37,28 @@ export class RoutineComponent implements OnInit {
   getRoutineEjers(){
     if(this.id !== null){
 
-       this._exerService.getRoutineEjer(this.id).subscribe(data => {
-            const fi = 
-           console.log(data.payload.data()['Name'])
+      this._routineService.getRoutines().subscribe(data => {
+        this.rutina = [];
+        data.forEach((Element:any) => {
+          this.rutina.push({
+            id: Element.payload.doc.id,
+            ...Element.payload.doc.data()
+          })
+        });
+
+        for( let i= 0 ; i <= this.rutina.length; i++ ){
+          if(this.id == this.rutina[i].id){
+           this.aux = this.rutina[i];
+           console.log(this.aux)
+          }
+        }
+
+        console.log (this.rutina);
+      });
           
-    });
+    }
 
 
-     }
+     
   }
 }
