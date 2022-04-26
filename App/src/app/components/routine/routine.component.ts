@@ -49,7 +49,7 @@ export class RoutineComponent implements OnInit {
         for( let i= 0 ; i <= this.rutina.length; i++ ){
           if(this.id == this.rutina[i].id){
            this.aux = this.rutina[i];
-           console.log(this.aux)
+           console.log(this.aux.exercises)
           }
         }
 

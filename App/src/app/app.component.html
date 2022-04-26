@@ -2,6 +2,7 @@
     
     <div *ngIf="userLogged|async as user; else login">
         <a class="nav__items">{{user.email}}</a>
+        <a routerLink="/home" class="nav__items" > Home </a>
         <a routerLink="/profile" class="nav__items" > Edit profile </a>
         <a routerLink="/routines" class="nav__items" > My routines </a>
         <button class="btn btn-primary" (click)="logOut()">logout</button>
