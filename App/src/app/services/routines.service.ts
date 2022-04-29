@@ -17,12 +17,28 @@ export class RoutineService {
         return this.firestore.collection('User').add(user);
 
     }
-    getRoutines():Observable<any>{
-        return this.firestore.collection('Rutina').snapshotChanges();
+    getRoutines(email:string):Observable<any>{
+        return this.firestore.collection('Rutina',ref => ref.where('email','==',email)).snapshotChanges();
     }
 
     getRoutineEjer(id:string):Observable<any>{
         return this.firestore.collection('Rutina').doc(id).get();
+
+    }
+    deleteRoutine(id:string){
+        this.firestore.collection('Rutina').doc(id).delete();
+
+    }
+    joinClass(id:string,res:string[]){
+        this.firestore.collection('Clase').doc(id).update({
+            Members: res
+          });;
+
+    }
+    cancelClass(id:string,res:string[]){
+        this.firestore.collection('Clase').doc(id).update({
+            Members: res
+          });;
 
     }
     getUser(email:string):Observable<any>{
@@ -31,5 +47,11 @@ export class RoutineService {
     }
     getClases():Observable<any>{
         return this.firestore.collection('Clase').snapshotChanges();
+    }
+    
+    update(id:string | undefined,num:number){
+        return this.firestore.collection('Rutina').doc(id).update({
+            Done: num
+          });;
     }
 }

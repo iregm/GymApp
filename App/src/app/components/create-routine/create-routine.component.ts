@@ -22,7 +22,8 @@ export class CreateRoutineComponent implements OnInit {
       Time:['',Validators.required],
       Level:['',Validators.required],
       Description:['',Validators.required],
-      Ejercicios:[[]]
+      Ejercicios:[[]],
+      Done:[0]
 
     })
     this.createExercise = this.fb.group({
@@ -49,5 +50,6 @@ export class CreateRoutineComponent implements OnInit {
     this.exercises.push(this.createExercise.value);
     this.createExercise.reset();
   }
+
 
 }

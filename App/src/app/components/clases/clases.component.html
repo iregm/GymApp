@@ -25,6 +25,11 @@
                     <h3>
                         Time: {{clase.Hora}}
                     </h3>
+                    <div *ngIf="!clase.apuntado;else noApuntado">
+                        <button (click)="join(clase.id,clase.Members)" class="col btn btn-dark btn-lg">Join</button>
+                    </div>
+                    <ng-template #noApuntado><button (click)="cancel(clase.id,clase.Members)" class="col btn btn-danger btn-lg">Cancel</button></ng-template>
+
                     </div>
                 
                 </tr>

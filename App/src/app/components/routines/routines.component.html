@@ -13,7 +13,7 @@
 </div>
     <div class="container mt-4">
     <tr *ngFor="let rutina of rutinas">
-         <div class="card mt-5" [routerLink]="['/routine/', rutina.id]">
+         <div class="card mt-5" >
             <div class="card-body">
                 <tr>
                     <div class = "titulo">
@@ -30,6 +30,8 @@
                     <h4>
                         {{rutina.Time}} minutes
                     </h4>
+                    <button  (click)="deleteRoutine(rutina.id)" class="col btn btn-danger btn-lg">Delete</button>
+                    <button  [routerLink]="['/routine/', rutina.id]" class="col btn btn-dark btn-lg">Details</button>
                     </div>
                      
                 </tr>

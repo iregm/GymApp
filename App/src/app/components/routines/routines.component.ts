@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { RoutineService } from 'src/app/services/routines.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { user } from '@angular/fire/auth';
+
 
 @Component({
   selector: 'app-routines',
@@ -10,15 +13,23 @@ import { RoutineService } from 'src/app/services/routines.service';
 })
 export class RoutinesComponent implements OnInit {
   rutinas: any[] = [];
-  constructor(private _routineService: RoutineService) {  }
-
-  ngOnInit(): void {
-    this.getRoutines();
+  
+  
+  constructor(private _routineService: RoutineService,private authService: AuthService) { 
+    var email=''; 
+    this.authService.getUserLogged().subscribe(user=>{if(user?.email){this.getRoutines(user.email);email=user.email}})
   }
 
-  getRoutines(){
+  ngOnInit(): void {
+     
+    }
+  deleteRoutine(id:string){
+    this._routineService.deleteRoutine(id)
+  }
 
-    this._routineService.getRoutines().subscribe(data => {
+  getRoutines(email:string){
+    console.log(email)
+    this._routineService.getRoutines(email).subscribe(data => {
       this.rutinas = [];
       data.forEach((Element:any) => {
         this.rutinas.push({
@@ -28,6 +39,6 @@ export class RoutinesComponent implements OnInit {
       });
       console.log (this.rutinas);
     });
+   
   }
-
 }

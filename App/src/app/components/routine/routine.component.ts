@@ -32,12 +32,16 @@ export class RoutineComponent implements OnInit {
   ngOnInit(): void {
     this.getRoutineEjers();
   }
+  done(){
+    if(this.id != null)
+    this._routineService.update(this.id,this.aux.Done+1)
+  }
 
 
   getRoutineEjers(){
     if(this.id !== null){
 
-      this._routineService.getRoutines().subscribe(data => {
+      this._routineService.getRoutines("javierru8@gmail.com").subscribe(data => {
         this.rutina = [];
         data.forEach((Element:any) => {
           this.rutina.push({

@@ -8,8 +8,18 @@
                    
                     <div>
                         <h1>
-                            Routine: {{aux.Name}}
+                            {{aux.Name}}
                         </h1>
+
+                    </div>
+                    <div class="py-3">
+                        
+                        {{aux.Description}}
+
+                    </div>
+                    <div class="py-3">
+                        
+                        Difficulty: {{aux.Level}}
 
                     </div>
                    
@@ -20,12 +30,10 @@
                         <div class="col">Set: {{exercise.Set}}</div>
                         <div class="col">Repetition: {{exercise.Repetition}}</div>
                     </div>
-                    <div class="pt-5">
-                        
-                        Difficulty: {{aux.Level}}
-
+                    <div class="row mt-3">
+                    <div class="col">Times done: {{aux.Done}}</div>
+                    <button  (click)="done()" class="col btn btn-dark btn-lg">Done</button>
                     </div>
-                    
 
                 </div>
 
