@@ -15,6 +15,7 @@ import { AppComponent } from './app.component';
 import { RoutineComponent } from './components/routine/routine.component';
 import { RoutinesComponent } from './components/routines/routines.component';
 import { CreateRoutineComponent } from './components/create-routine/create-routine.component';
+import { CreateClaseComponent } from './components/create-clase/create-clase.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
@@ -28,6 +29,7 @@ import { ClasesComponent } from './components/clases/clases.component';
     RoutineComponent,
     RoutinesComponent,
     CreateRoutineComponent,
+    CreateClaseComponent,  
     HomeComponent,
     LoginComponent,
     SingupComponent,

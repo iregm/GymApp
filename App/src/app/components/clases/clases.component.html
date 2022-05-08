@@ -3,7 +3,9 @@
         <div style="text-align: center; background-color: rgb(0,0,0);" class="card-body derecha">
             <span class="h2">Join a Class!</span>
         
-           
+            <div>
+                <button class="btn btn-dark btn-lg mt-5" routerLink="/createClase">Add Class</button>
+            </div>
              
         </div>
     </div>
@@ -21,7 +23,10 @@
                     <div class = "text">
                     <h3>
                          Teacher : {{clase.Profesor}}
-                    </h3>                   
+                    </h3> 
+                    <h3>
+                        Day: {{clase.Day}}
+                    </h3>                  
                     <h3>
                         Time: {{clase.Hora}}
                     </h3>

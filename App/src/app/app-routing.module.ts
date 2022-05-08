@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { RoutinesComponent } from './components/routines/routines.component';
 import { RoutineComponent } from './components/routine/routine.component';
 import { CreateRoutineComponent } from './components/create-routine/create-routine.component';
+import { CreateClaseComponent } from './components/create-clase/create-clase.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { SingupComponent } from './components/singup/singup.component';
@@ -18,6 +19,7 @@ const routes : Routes = [
   {path: 'routines', component: RoutinesComponent},
   {path: 'routine/:id', component: RoutineComponent},
   {path: 'createRoutine', component: CreateRoutineComponent},
+  {path: 'createClase', component: CreateClaseComponent},
   {path: 'clases', component: ClasesComponent},
 ]
 

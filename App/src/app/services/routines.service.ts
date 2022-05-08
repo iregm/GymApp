@@ -13,6 +13,10 @@ export class RoutineService {
         return this.firestore.collection('Rutina').add(routine);
 
     }
+    addClase(clase: any) : Promise<any>{
+        return this.firestore.collection('Clase').add(clase);
+    }
+    
     addUser(user :any) : Promise<any> {
         return this.firestore.collection('User').add(user);
 
