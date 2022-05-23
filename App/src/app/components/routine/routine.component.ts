@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { RoutineService } from 'src/app/services/routines.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-routine',
@@ -19,18 +20,20 @@ export class RoutineComponent implements OnInit {
   constructor(
     private fb : FormBuilder,
     private _routineService: RoutineService ,
-    private aRoute: ActivatedRoute
+    private aRoute: ActivatedRoute,
+    private authService: AuthService
+    
   ) {
     
     this.id = this.aRoute.snapshot.paramMap.get('id');
-    console.log(this.id);
+    var email=''; 
+    this.authService.getUserLogged().subscribe(user=>{if(user?.email){this.getRoutineEjers(user.email);email=user.email}})
   }
 
     
    
 
   ngOnInit(): void {
-    this.getRoutineEjers();
   }
   done(){
     if(this.id != null)
@@ -38,10 +41,10 @@ export class RoutineComponent implements OnInit {
   }
 
 
-  getRoutineEjers(){
+  getRoutineEjers(email:string){
     if(this.id !== null){
 
-      this._routineService.getRoutines("javierru8@gmail.com").subscribe(data => {
+      this._routineService.getRoutines(email).subscribe(data => {
         this.rutina = [];
         data.forEach((Element:any) => {
           this.rutina.push({

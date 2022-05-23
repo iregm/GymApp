@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RoutineService } from 'src/app/services/routines.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-create-routine',
@@ -16,14 +17,17 @@ export class CreateRoutineComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private _routineService:RoutineService,
-              private router:Router) { 
+              private router:Router,
+              private authService: AuthService) {  
+    
     this.createRoutine = this.fb.group({
       Name:['',Validators.required],
       Time:['',Validators.required],
       Level:['',Validators.required],
       Description:['',Validators.required],
       Ejercicios:[[]],
-      Done:[0]
+      Done:[0],
+      email:''
 
     })
     this.createExercise = this.fb.group({
@@ -31,6 +35,7 @@ export class CreateRoutineComponent implements OnInit {
       Set:['',Validators.required],
       Repetition:['',Validators.required]
     })
+    this.authService.getUserLogged().subscribe(user=>{if(user?.email){this.createRoutine.controls['email'].setValue(user.email);}})
   }
 
   ngOnInit(): void {
