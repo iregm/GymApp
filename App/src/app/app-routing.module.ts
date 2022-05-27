@@ -10,12 +10,15 @@ import { LoginComponent } from './components/login/login.component';
 import { SingupComponent } from './components/singup/singup.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ClasesComponent } from './components/clases/clases.component';
+import { FormWorkoutComponent } from './components/form-workout/form-workout.component';
 
 const routes : Routes = [
+
   {path: '', component: LoginComponent},
   {path: 'singup', component: SingupComponent},
   {path: 'home', component: HomeComponent},
   {path: 'profile', component: ProfileComponent},
+  {path: 'workouts/:id', component: FormWorkoutComponent},
   {path: 'routines', component: RoutinesComponent},
   {path: 'routine/:id', component: RoutineComponent},
   {path: 'createRoutine', component: CreateRoutineComponent},

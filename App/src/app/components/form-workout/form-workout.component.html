@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h3>How was the workout?</h3>
+                    <form class="mt-4" [formGroup]="createWorkout" (ngSubmit)="addWorkout()">
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control form-control-lg" formControlName="Dificulty" 
+                                placeholder="Dificulty of this workout">
+                            </div>
+                           
+                        </div>
+                        <input type="number" class="form-control form-control-lg mt-3"  formControlName="TimeSpent" 
+                        placeholder="Time Spent" >
+
+                        <input type="text" class="form-control form-control-lg mt-3" formControlName="Observation"
+                        placeholder="What would you change?" >
+                  
+                        <div class="row mt-3">
+                            <div class="col">
+                                <button type="text" class="btn btn-secondary btn-lg mr-3" routerLink="/routines">Back</button>
+                            </div>
+                            <div class="col">
+                                <button type="submit" class="btn btn-dark btn-lg">Create</button>
+                            </div>
+                            </div>
+                           
+                        
+                        <span *ngIf="submitted && createWorkout.invalid" class="bg-danger text-white my-3">All the fields are mandatory</span>
+                    
+                    </form>
+                       
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
