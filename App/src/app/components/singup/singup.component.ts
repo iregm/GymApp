@@ -21,7 +21,8 @@ export class SingupComponent implements OnInit {
       password:['',Validators.required],
       name:['',Validators.required],
       height:['',Validators.required],
-      weight:['',Validators.required]
+      weight:['',Validators.required],
+      type:['',Validators.required]
     })
    }
 
@@ -30,7 +31,8 @@ export class SingupComponent implements OnInit {
       name:this.createUser.value.name,
       height:this.createUser.value.height,
       weight:this.createUser.value.weight,
-      email:this.createUser.value.email
+      email:this.createUser.value.email,
+      type:this.createUser.value.type
     }
     this.authService.register(this.createUser.value.email,this.createUser.value.password ).then(user => {
 

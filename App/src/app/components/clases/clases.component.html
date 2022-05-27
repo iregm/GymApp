@@ -4,7 +4,9 @@
             <span class="h2">Join a Class!</span>
         
             <div>
+                <div *ngIf="type=='teacher'">
                 <button class="btn btn-dark btn-lg mt-5" routerLink="/createClase">Add Class</button>
+            </div>
             </div>
              
         </div>
@@ -32,6 +34,9 @@
                     </h3>
                     <div *ngIf="!clase.apuntado;else noApuntado">
                         <button (click)="join(clase.id,clase.Members)" class="col btn btn-dark btn-lg">Join</button>
+                    </div>
+                    <div *ngIf="type=='teacher' && clase.Profesor==nameT">
+                        <button (click)="delete(clase.id)" class="col btn btn-dark btn-lg">Delete class</button>
                     </div>
                     <ng-template #noApuntado><button (click)="cancel(clase.id,clase.Members)" class="col btn btn-danger btn-lg">Cancel</button></ng-template>
 

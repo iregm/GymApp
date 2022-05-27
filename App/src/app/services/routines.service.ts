@@ -33,6 +33,10 @@ export class RoutineService {
         this.firestore.collection('Rutina').doc(id).delete();
 
     }
+    deleteClass(id:string){
+        this.firestore.collection('Clase').doc(id).delete();
+
+    }
     joinClass(id:string,res:string[]){
         this.firestore.collection('Clase').doc(id).update({
             Members: res
@@ -46,7 +50,7 @@ export class RoutineService {
 
     }
     getUser(email:string):Observable<any>{
-        return this.firestore.collection('User',ref => ref.where('email','==',email)).get();
+        return this.firestore.collection('User',ref => ref.where('email','==',email)).snapshotChanges();
 
     }
     getClases():Observable<any>{
