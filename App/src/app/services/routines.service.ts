@@ -6,6 +6,9 @@ import { Observable } from 'rxjs';
     providedIn:'root'
 })
 export class RoutineService {
+    addWorkout(workout: any) {
+        return this.firestore.collection('Workout').add(workout);
+    }
 
     constructor(private firestore: AngularFirestore){}
     

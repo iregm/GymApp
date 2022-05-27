@@ -22,6 +22,7 @@ import { LoginComponent } from './components/login/login.component';
 import { SingupComponent } from './components/singup/singup.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ClasesComponent } from './components/clases/clases.component';
+import { FormWorkoutComponent } from './components/form-workout/form-workout.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ClasesComponent } from './components/clases/clases.component';
     LoginComponent,
     SingupComponent,
     ProfileComponent,
-    ClasesComponent
+    ClasesComponent,
+    FormWorkoutComponent
   ],
   imports: [
     BrowserModule,
