@@ -1,20 +1,31 @@
 <div class="container">
     <div class="card text-center">
-      <div class="card-header">
-        <b> Profile</b>
+      <div class ="card-body">
+        <span class="h3">Workouts Register</span>
+        <table class = "table mt-5">
+
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Time Spent</th>
+              <th>Difficulty</th>
+              <th>Any Observation?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let workout of workouts">
+              <td>{{workout.Name}}</td>
+              <td>{{workout.TimeSpent}}</td>
+              <td>{{workout.Dificulty}}</td>
+              <td>{{workout.Observation}}</td>
+              <td>
+                <i class="fas fa-edit fa-lg text-info mr-2"></i>
+                <i class="fas fa-trash-alt fa-lg text-danger"></i>
+             
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      
-        <form class="card-body p-4" [formGroup]="updateUser" (ngSubmit)="update()">
-        <label style="float: left;">Name</label>
-        <input class="form-control m-2" type="text" placeholder="" formControlName="name">
-        <label style="float: left;">Height (cm)</label>
-        <input class="form-control m-2" type="number" placeholder="" formControlName="height">
-        <label style="float: left;">Weight (kg)</label>
-        <input class="form-control m-2" type="number" placeholder="" formControlName="weight">
-  
-        <button class="btn btn-primary btn-block m-2" type="submit">Save</button>
-    </form>
-  
-  
     </div>
   </div>

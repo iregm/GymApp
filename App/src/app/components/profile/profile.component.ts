@@ -11,31 +11,28 @@ import { RoutineService } from 'src/app/services/routines.service';
 })
 export class ProfileComponent implements OnInit {
 
-  updateUser:FormGroup;
-  user:any;
+ workouts : any[] = []
 
-  ngOnInit() {}
+ constructor(private _workoutService : RoutineService){
 
-  constructor(private authService: AuthService, private database: RoutineService, private router: Router,private fb: FormBuilder) {
-    this.updateUser = this.fb.group({
-      name:['',Validators.required],
-      height:['',Validators.required],
-      weight:['',Validators.required]
-    })
-   }
 
-  update() {
-    this.user = {
-      name:this.updateUser.value.name,
-      height:this.updateUser.value.height,
-      weight:this.updateUser.value.weight,
-      email:this.updateUser.value.email
-    }
-
-        this.database.addUser(this.user).then(()=>{
-        }).catch(error => {console.log(error)});
-      
-        this.router.navigate(['/home']);
-    
+ }
+  ngOnInit():void {
+    this.getWorkouts()
   }
+
+getWorkouts(){
+
+  this._workoutService.getWorkouts().subscribe(data=> {
+    this.workouts = [];
+    data.forEach ((element:any) => {
+      this.workouts.push ({
+        id: element.payload.doc.id,
+        ...element.payload.doc.data()
+      })
+    });
+  })
+}
+    
+  
 }

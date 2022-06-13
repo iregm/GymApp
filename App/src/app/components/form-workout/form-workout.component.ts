@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { RoutineService } from 'src/app/services/routines.service';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -12,19 +13,22 @@ import { AuthService } from 'src/app/services/auth.service';
 export class FormWorkoutComponent implements OnInit {
   createWorkout:FormGroup;
   submitted=false;
-  
+  name: String | null= "";
+  Hora : Date;
 
   constructor(private fb: FormBuilder,
               private _workoutService:RoutineService,
               private router:Router,
-              private authService: AuthService) {  
-    
+              private authService: AuthService,
+              private aRoute: ActivatedRoute) {  
+    this.Hora = new Date();
+    this.name = this.aRoute.snapshot.paramMap.get('id');
     this.createWorkout = this.fb.group({
       Dificulty:['',Validators.required],
       TimeSpent:['',Validators.required],
       Observation:'',
-      Name: "" ,
-      HoraCreacion:"",
+      Name:  this.name,
+      HoraCreacion : this.Hora,
       email:''
 
     })

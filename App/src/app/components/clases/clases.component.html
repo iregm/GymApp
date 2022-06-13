@@ -40,6 +40,9 @@
                     </div>
                     <ng-template #noApuntado><button (click)="cancel(clase.id,clase.Members)" class="col btn btn-danger btn-lg">Cancel</button></ng-template>
 
+
+                    <button [routerLink]="['/workouts/', clase.Name]" class="col-4 btn btn-blue btn-lg"> <img src="https://cdn-icons-png.flaticon.com/512/219/219311.png" height ="80" width="80" /></button>
+
                     </div>
                 
                 </tr>

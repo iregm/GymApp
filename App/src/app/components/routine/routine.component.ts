@@ -22,7 +22,7 @@ export class RoutineComponent implements OnInit {
     private _routineService: RoutineService ,
     private aRoute: ActivatedRoute,
     private authService: AuthService
-    
+      
   ) {
     
     this.id = this.aRoute.snapshot.paramMap.get('id');

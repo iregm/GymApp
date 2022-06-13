@@ -32,6 +32,9 @@ export class RoutineService {
         return this.firestore.collection('Rutina').doc(id).get();
 
     }
+    getWorkouts(): Observable<any>{
+        return this,this.firestore.collection('Workout',ref => ref.orderBy('HoraCreacion', 'desc')).snapshotChanges();
+    }
     deleteRoutine(id:string){
         this.firestore.collection('Rutina').doc(id).delete();
 
